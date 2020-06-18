@@ -1,16 +1,9 @@
-const fs = require('fs')
+const validator = require('validator')
 
-fs.writeFileSync('notes.txt', 'This is tanshiv2');
+const mynotes = require('./notes.js');
+const message = mynotes();
 
-fs.appendFile('notes.txt',' This text appended using the appendFile', (err) => {
-    if (err) throw err;
-    console.log('Hurray! it worked!');
-});
+console.log(message);
+console.log(validator.isEmail('shivangi.tanwar4@gmail.com'))
 
-try{
-    fs.appendFileSync('notes.txt','Similarly, this one is appended using appendFileSync');
-    console.log('Hurray it worked!');
-}
-catch (err){
-    console.log('There is an error!');
-}
+console.log(validator.isURL('https://isthisvalid.com'));
